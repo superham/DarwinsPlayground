@@ -13,7 +13,7 @@ typedef struct {
 
 	SDL_Rect bounds;
 	char text[MAX_TEXT_SIZE];
-	
+
 	int textWidth;
 	int textHeight;
 
@@ -22,13 +22,13 @@ typedef struct {
 	unsigned visible;
 } Textbox;
 
-void Textbox_init(Textbox*, char*, int, int);
+void Textbox_init(Textbox*, char*, int, int, int, int);
 void Textbox_displayAt(Textbox*, int, int);
 
-void Textbox_setTextFromLong(Textbox*, char*, long);
-void Textbox_setTextDims(Textbox*, int, int);
-void Textbox_setText(Textbox*, char*);
+void Textbox_setTextFromLong(Textbox*, const char*, long);
+void Textbox_setText(Textbox*, char*, unsigned);
 
 void Textbox_render(Textbox*, SDL_Renderer*, TTF_Font*);
+void Textbox_renderRotatedText(Textbox*, SDL_Renderer*, TTF_Font*, double);
 
 #endif /* GAME_TEXTBOX_H__ */

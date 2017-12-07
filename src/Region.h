@@ -13,14 +13,14 @@
 typedef struct {
 
 	Square square;
-	
 	long maxPopulation;
-	unsigned long population;
+	long population;
 
 	int temperature;
 	int terrain;
 	int humidity;
 	int randDanger;
+	int growth;
 } Region;
 
 void Region_init(Region*, SDL_Renderer*, const char*, int, int, int);

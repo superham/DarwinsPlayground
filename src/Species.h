@@ -7,8 +7,15 @@ typedef struct {
 	unsigned dexterity;
 	unsigned resourcefulness;
 	unsigned tenacity;
-	unsigned lifespan; // generations
+	unsigned lifespan;
 	unsigned fertility;
+
+	int d_hot;
+	int d_cold;
+	int d_arid;
+	int d_mount;
+	int d_forest;
+	int evo_points;
 } Species;
 
 void Species_init(Species*);
