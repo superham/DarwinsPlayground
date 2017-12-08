@@ -8,7 +8,7 @@
 
 static const char* titles[4] = {"Strength", "Dexterity", "Tenacity", "Resourcefulness"};
 
-void Menu_init(Menu* menu, SDL_Renderer* renderer, const char* texfile, int cw, int ch, int iw, int ih)//initialize evolve menu
+void Menu_init(Menu* menu, SDL_Renderer* renderer, const char* texfile, int cw, int ch, int iw, int ih)
 {
 	SDL_Surface* image = IMG_Load(texfile);
 	if(image == NULL)
@@ -29,38 +29,38 @@ void Menu_init(Menu* menu, SDL_Renderer* renderer, const char* texfile, int cw, 
 	menu->bounds.x = iw - cw;
 	menu->bounds.y = 0;
 
-	Evolve_init(&(menu->buttons[0][0]), renderer, "resources/strbutton.png", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-	Evolve_init(&(menu->buttons[1][0]), renderer, "resources/dexbutton.png", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-	Evolve_init(&(menu->buttons[2][0]), renderer, "resources/tenbutton.png", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-	Evolve_init(&(menu->buttons[3][0]), renderer, "resources/resbutton.png", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-//initialized values of evolve traits, in order of base attributes then regional modifiers/misc bonuses
-	Evolve_init(&(menu->buttons[0][1]), renderer, "resources/increased_size.png", 15, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[0][2]), renderer, "resources/tough_claws.png", 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[0][3]), renderer, "resources/iron_grip.png", 5, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[0][4]), renderer, "resources/dumb_muscle.png", 25, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20);
-	Evolve_init(&(menu->buttons[0][5]), renderer, "resources/bone_spikes.png", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20);
-	Evolve_init(&(menu->buttons[0][6]), renderer, "resources/strong_jaw.png", 10, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 20);
+	Evolve_init(&(menu->buttons[0][0]), renderer, "resources/strbutton.png", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[1][0]), renderer, "resources/dexbutton.png", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[2][0]), renderer, "resources/tenbutton.png", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[3][0]), renderer, "resources/resbutton.png", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
-	Evolve_init(&(menu->buttons[1][1]), renderer, "resources/small_frame.png", -5, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[1][2]), renderer, "resources/tail.png", 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[1][3]), renderer, "resources/natural_camoflauge.png", 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[1][4]), renderer, "resources/prehensile_tail.png", 0, 10, 0, 0, 0, 0, 0, 0, 5, 0, 0, 20);
-	Evolve_init(&(menu->buttons[1][5]), renderer, "resources/powerful_hind_legs.png", 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20);
-	Evolve_init(&(menu->buttons[1][6]), renderer, "resources/opposable_thumbs.png", 0, 10, 0, 5, 0, 0, 0, 0, 0, 0, 0, 20);
+	Evolve_init(&(menu->buttons[0][1]), renderer, "resources/increased_size.png", 15, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[0][2]), renderer, "resources/tough_claws.png", 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[0][3]), renderer, "resources/iron_grip.png", 5, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0);
+	Evolve_init(&(menu->buttons[0][4]), renderer, "resources/dumb_muscle.png", 25, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[0][5]), renderer, "resources/bone_spikes.png", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[0][6]), renderer, "resources/strong_jaw.png", 10, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0);
 
-	Evolve_init(&(menu->buttons[2][1]), renderer, "resources/thick_fur.png", 0, 0, 10, 0, -5, 5, 0, 0, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[2][2]), renderer, "resources/hard_shell.png", 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[2][3]), renderer, "resources/water_reserves.png", 0, 0, 5, 0, 0, 0, 5, 0, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[2][4]), renderer, "resources/fertility.png", 0, 0, 10, 0, 0, 0, 0, 0, 0, 2, 0, 20);
-	Evolve_init(&(menu->buttons[2][5]), renderer, "resources/exoskeleton.png", 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 20);
-	Evolve_init(&(menu->buttons[2][6]), renderer, "resources/longevity.png", 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 10, 20);
+	Evolve_init(&(menu->buttons[1][1]), renderer, "resources/small_frame.png", -5, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[1][2]), renderer, "resources/tail.png", 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[1][3]), renderer, "resources/natural_camoflauge.png", 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[1][4]), renderer, "resources/prehensile_tail.png", 0, 10, 0, 0, 0, 0, 0, 0, 5, 0, 0);
+	Evolve_init(&(menu->buttons[1][5]), renderer, "resources/powerful_hind_legs.png", 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[1][6]), renderer, "resources/opposable_thumbs.png", 0, 10, 0, 5, 0, 0, 0, 0, 0, 0, 0);
 
-	Evolve_init(&(menu->buttons[3][1]), renderer, "resources/wolf_pack_tactics.png", 5, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[3][2]), renderer, "resources/night_vision.png", 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 10);
-	Evolve_init(&(menu->buttons[3][3]), renderer, "resources/improved_foraging.png", 0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, 10);
-	Evolve_init(&(menu->buttons[3][4]), renderer, "resources/insomniac.png", -10, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 20);
-	Evolve_init(&(menu->buttons[3][5]), renderer, "resources/olfactory_acuity.png", 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 20);
-	Evolve_init(&(menu->buttons[3][6]), renderer, "resources/extra_stomach.png", 0, -10, 0, 25, 0, 0, 0, 0, 0, 0, 0, 20);
+	Evolve_init(&(menu->buttons[2][1]), renderer, "resources/thick_fur.png", 0, 0, 10, 0, -5, 5, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[2][2]), renderer, "resources/hard_shell.png", 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[2][3]), renderer, "resources/water_reserves.png", 0, 0, 5, 0, 0, 0, 5, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[2][4]), renderer, "resources/fertility.png", 0, 0, 10, 0, 0, 0, 0, 0, 0, 2, 0);
+	Evolve_init(&(menu->buttons[2][5]), renderer, "resources/exoskeleton.png", 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[2][6]), renderer, "resources/longevity.png", 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 10);
+
+	Evolve_init(&(menu->buttons[3][1]), renderer, "resources/wolf_pack_tactics.png", 5, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[3][2]), renderer, "resources/night_vision.png", 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[3][3]), renderer, "resources/improved_foraging.png", 0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0);
+	Evolve_init(&(menu->buttons[3][4]), renderer, "resources/insomniac.png", -10, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[3][5]), renderer, "resources/olfactory_acuity.png", 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0);
+	Evolve_init(&(menu->buttons[3][6]), renderer, "resources/extra_stomach.png", 0, -10, 0, 25, 0, 0, 0, 0, 0, 0, 0);
 
 	Evolve_setDescription(&(menu->buttons[0][1]), "Increased Size");
 	Evolve_setDescription(&(menu->buttons[0][2]), " Tough Claws  ");
@@ -110,21 +110,22 @@ void Menu_init(Menu* menu, SDL_Renderer* renderer, const char* texfile, int cw, 
 
 	Textbox_init(&(menu->title), "Strength", 200, 44, 90, 30);
 	Textbox_displayAt(&(menu->title), 375, 20);
-	
-	Textbox_init(&(menu->points), "0", 150, 40, 30, 30);
-	Textbox_displayAt(&(menu->points), 710, 280);
+
+	Textbox_init(&(menu->points), "0", 150, 40, 19, 29);
+	Textbox_displayAt(&(menu->points), menu->bounds.x - (menu->title.bounds.w / 4), 280);
+
+	menu->points.boxcolor = 0x0;
+	menu->points.textcolor = 0xffabab8a;
 
 	menu->title.boxcolor = EVOLVE_LABEL_COLOR;
 	menu->title.visible = 0;
-	
-	menu->points.boxcolor = 0x0;
 
 	menu->state = MENU_CLOSED;
 	menu->animating = 0;
 	menu->selected = -1;
 }
 
-unsigned Menu_checkMouse(Menu* menu, Species* species, int mx, int my, unsigned clicked)//checks where mouse is/if it is clicking
+unsigned Menu_checkMouse(Menu* menu, Species* species, int mx, int my, unsigned clicked)
 {
 	static unsigned canClick = 1;
 
@@ -166,7 +167,7 @@ unsigned Menu_checkMouse(Menu* menu, Species* species, int mx, int my, unsigned 
 			{
 				if(Square_intersectsPoint(&(menu->buttons[menu->selected][i].square), mx, my) && clicked)
 				{
-					if(!(menu->buttons[menu->selected][i].applied) && species->evo_points >= (menu->buttons[menu->selected][i]).evo_cost)//checks if you have enough points to evolve
+					if(!(menu->buttons[menu->selected][i].applied))
 						Evolve_trait(&(menu->buttons[menu->selected][i]), species);
 				}
 			}
@@ -176,30 +177,26 @@ unsigned Menu_checkMouse(Menu* menu, Species* species, int mx, int my, unsigned 
 	return 0;
 }
 
-unsigned Menu_update(Menu* menu)
+unsigned Menu_update(Menu* menu, Species* species)
 {
 	if(menu->animating && menu->bounds.x > 0)
 	{
 		menu->bounds.x -= MENU_ANIMATE_DX;
-		menu->points.bounds.x -= MENU_ANIMATE_DX;
 
 		if(menu->bounds.x < 0)
 			menu->bounds.x = 0;
-		
-		if(menu->points.bounds.x < (menu->points.bounds.w / 2))
-			menu->points.bounds.x = (menu->points.bounds.w / 2);
 	}
 	else if(!(menu->animating) && menu->bounds.x < (menu->bounds.w - menu->clickable.w))
 	{
 		menu->bounds.x += MENU_ANIMATE_DX;
-		menu->points.bounds.x += MENU_ANIMATE_DX;
 
 		if(menu->bounds.x > (menu->bounds.w - menu->clickable.w))
 			menu->bounds.x = (menu->bounds.w - menu->clickable.w);
-		
-		if(menu->points.bounds.x > (menu->bounds.w - menu->clickable.w) + (menu->points.bounds.w / 2))
-			menu->points.bounds.x = (menu->bounds.w - menu->clickable.w) + (menu->points.bounds.w / 2);
 	}
+
+	Textbox_displayAt(&(menu->points), menu->bounds.x - (menu->title.bounds.w / 4), 280);
+	Textbox_setTextFromLong(&(menu->points), "", species->evo_points);
+
 	menu->clickable.x = menu->bounds.x;
 
 	if(menu->bounds.x <= 0)
@@ -250,7 +247,7 @@ void Menu_render(Menu* menu, SDL_Renderer* renderer, TTF_Font* font)
 		}
 		Textbox_render(&(menu->title), renderer, font);
 	}
-	//Textbox_renderRotatedText(&(menu->points), renderer, font, 90.0);
+	Textbox_renderTextRotated(&(menu->points), renderer, font, -90.0);
 }
 
 void Menu_destroy(Menu* menu)
