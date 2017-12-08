@@ -360,7 +360,6 @@ void updateAll(unsigned* running)
 			Textbox_setTextFromLong(&mainInfo, "Population: ", netPopulation);
 			Textbox_setTextFromLong(&growthInfo, ": ", netGrowth);
 			Textbox_setTextFromLong(&decayInfo, ": ", netDecay);
-			Textbox_setTextFromLong(&(popupMenu.points), "", mainSpecies.evo_points);
 
 			frames = 0;
 		}
